@@ -7,6 +7,7 @@ public:
 
 	int data;
 	int level;
+	bool isRoot;
 	bool hasChildren;
 	bool isRightChild;
 	bool isLeftChild;
@@ -16,6 +17,6 @@ public:
 	Node * rightChild;
 
 	void calculateData();
-	int getLeftNeighborData();
-	int getRightNeightborData();
+	Node* getLeftNeighbor();
+    Node* getRightNeighbor();
 };

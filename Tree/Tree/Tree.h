@@ -12,7 +12,7 @@ public:
 
 	vector<Node> nodeList;
 	Node currentNode;
-	int currentList;
+	int currentLevel;
 
 	void makeTree(int numLevels);
 };
