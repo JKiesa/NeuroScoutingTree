@@ -10,7 +10,6 @@ public:
 	int level;
 	int column;
 	bool isRoot;
-	bool hasChildren;
 	bool isRightChild;
 	bool isLeftChild;
 
@@ -21,12 +20,6 @@ public:
 	Node * rightNeighbor;
 
 	void calculateData();
-	//Node* getLeftNeighbor();
-    //Node* getRightNeighbor();
-
-	//Node* getLeftNeighbor2(vector<Node*> nodeList);
-	//Node* getRightNeighbor2(vector<Node*> nodeList);
-
 	void makeRoot();
 	void makeLeftChild();
 	void makeRightChild();

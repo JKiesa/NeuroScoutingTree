@@ -16,11 +16,20 @@ void main()
 		cin >> numLevels;
 	}
 
+	//Make the tree
 	vector<Node*> nodeTree = tree.makeTree(numLevels);
 
-	for(Node* n : nodeTree)
+	//Print out the data
+	for(int x=1; x<=numLevels; x++)
 	{
-		cout << n->data << endl;
+		for(Node* node : nodeTree)
+		{
+			if(node->level == x)
+			{
+				cout << node->data << " ";
+			}
+		}
+		cout << endl;
 	}
 
 }

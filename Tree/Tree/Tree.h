@@ -11,11 +11,8 @@ public:
 	~Tree(void);
 
 	vector<Node*> nodeList;
-	Node currentNode;
-	int currentLevel;
 
 	vector<Node*> makeTree(int numLevels);
-
 	Node* getLeftNeighbor(Node* n);
 	Node* getRightNeighbor(Node* n);
 };

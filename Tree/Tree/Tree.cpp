@@ -46,12 +46,6 @@ vector<Node*> Tree::makeTree(int numLevels)
 				Node * newNode = new Node;
 				newNode->makeRoot();
 				nodeList.push_back(newNode);
-
-				//newNode->leftChild = new Node;
-				//newNode->rightChild = new Node;
-				//newNode->makeLeftChild();
-				//newNode->makeRightChild();
-				//delete newNode;
 			}
 			
 			if(x < numLevels)//There are more levels
