@@ -10,11 +10,14 @@ public:
 	Tree(void);
 	~Tree(void);
 
-	vector<Node> nodeList;
+	vector<Node*> nodeList;
 	Node currentNode;
 	int currentLevel;
 
-	void makeTree(int numLevels);
+	vector<Node*> makeTree(int numLevels);
+
+	Node* getLeftNeighbor(Node* n);
+	Node* getRightNeighbor(Node* n);
 };
 
 

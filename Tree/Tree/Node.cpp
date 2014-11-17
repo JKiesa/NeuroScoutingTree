@@ -14,26 +14,24 @@ void Node::calculateData()
 {
 	if(isRightChild)
 	{
-		Node * parentRightNeighbor = getRightNeighbor();
 		data = parent->data;
-		if(parentRightNeighbor != nullptr)
+		if(parent->rightNeighbor != nullptr)
 		{
-			data += parentRightNeighbor->data;
+			data += parent->rightNeighbor->data;
 		}
 	}
 	else//Is left child
 	{
-		Node * parentLeftNeighbor = getLeftNeighbor();
 		data = parent->data;
-		if(parentLeftNeighbor != nullptr)
+		if(parent->leftNeighbor != nullptr)
 		{
-			data += parentLeftNeighbor->data;
+			data += parent->leftNeighbor->data;
 		}
 	}
 }
 
 //Returns the Left Neighbor of the Node that called it
-Node* Node::getLeftNeighbor()
+/*Node* Node::getLeftNeighbor()
 {
 	Node * current;
 	if(isRightChild)
@@ -84,4 +82,55 @@ Node* Node::getRightNeighbor()
 		return current->leftChild;
 	}
 	return nullptr;//No right neighbor
+}*/
+
+/*Node* Node::getLeftNeighbor2(vector<Node*> nodeList)
+{
+	for(Node* n: nodeList)
+	{
+		if(n->level == level && n->column == column-1)
+		{
+			return n;
+		}
+	}
+	return nullptr;
+}
+
+Node* Node::getRightNeighbor2(vector<Node*> nodeList)
+{
+	for(Node* n: nodeList)
+	{
+		if(n->level == level && n->column == column+1)
+		{
+			return n;
+		}
+	}
+}*/
+
+void Node::makeRoot()
+{
+	isRoot = true;
+	data = 1;
+	level = 1;
+	column = 1;
+}
+
+void Node::makeLeftChild()
+{
+	leftChild->isRoot = false;
+	leftChild->isLeftChild = true;
+	leftChild->isRightChild = false;
+	leftChild->parent = this;
+	leftChild->level = parent->level + 1;
+	leftChild->column = (parent->column)*2 - 1;
+}
+
+void Node::makeRightChild()
+{
+	rightChild->isRoot = false;
+	rightChild->isLeftChild = false;
+	rightChild->isRightChild = true;
+	rightChild->parent = this;
+	rightChild->level = parent->level + 1;
+	rightChild->column = (parent->column)*2;
 }
