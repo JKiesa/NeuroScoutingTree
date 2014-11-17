@@ -46,30 +46,37 @@ vector<Node*> Tree::makeTree(int numLevels)
 				Node * newNode = new Node;
 				newNode->makeRoot();
 				nodeList.push_back(newNode);
+
+				//newNode->leftChild = new Node;
+				//newNode->rightChild = new Node;
+				//newNode->makeLeftChild();
+				//newNode->makeRightChild();
+				//delete newNode;
 			}
 			
 			if(x < numLevels)//There are more levels
 			{
+				int numNodes = nodeList.size();
 				//Makes the children nodes of the nodes in the latest level of the tree
-				for(Node* n : nodeList)
+				for(int i=0; i<numNodes; i++)
 				{
-					if(n->column == y && n->level == x && n->hasChildren == false)
+					if(nodeList[i]->column == y && nodeList[i]->level == x)
 					{
-						n->leftNeighbor = getLeftNeighbor(n);
-						n->rightNeighbor = getRightNeighbor(n);
+						nodeList[i]->leftNeighbor = getLeftNeighbor(nodeList[i]);
+						nodeList[i]->rightNeighbor = getRightNeighbor(nodeList[i]);
 
-						n->makeLeftChild();
-						n->leftChild->calculateData();
-						nodeList.push_back(n->leftChild);
+						nodeList[i]->leftChild = new Node;
+						nodeList[i]->makeLeftChild();
+						nodeList[i]->leftChild->calculateData();
+						nodeList.push_back(nodeList[i]->leftChild);
 
-						n->makeRightChild();
-						n->rightChild->calculateData();
-						nodeList.push_back(n->rightChild);
-
-						n->hasChildren = true;
-					}
-				}//end for each
-			}//end else
+						nodeList[i]->rightChild = new Node;
+						nodeList[i]->makeRightChild();
+						nodeList[i]->rightChild->calculateData();
+						nodeList.push_back(nodeList[i]->rightChild);
+					}//end if nodeList
+				}//end for i
+			}//end if x<numLevels
 		}//end for y
 	}//end for x
 

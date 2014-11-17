@@ -20,7 +20,7 @@ void main()
 
 	for(Node* n : nodeTree)
 	{
-		cout << n->leftChild->data << endl;
+		cout << n->data << endl;
 	}
 
 }

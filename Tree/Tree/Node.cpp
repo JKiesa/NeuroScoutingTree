@@ -121,8 +121,8 @@ void Node::makeLeftChild()
 	leftChild->isLeftChild = true;
 	leftChild->isRightChild = false;
 	leftChild->parent = this;
-	leftChild->level = parent->level + 1;
-	leftChild->column = (parent->column)*2 - 1;
+	leftChild->level = this->level + 1;
+	leftChild->column = (this->column)*2 - 1;
 }
 
 void Node::makeRightChild()
@@ -131,6 +131,6 @@ void Node::makeRightChild()
 	rightChild->isLeftChild = false;
 	rightChild->isRightChild = true;
 	rightChild->parent = this;
-	rightChild->level = parent->level + 1;
-	rightChild->column = (parent->column)*2;
+	rightChild->level = this->level + 1;
+	rightChild->column = (this->column)*2;
 }
