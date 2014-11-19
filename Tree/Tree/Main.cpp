@@ -27,6 +27,7 @@ void main()
 			if(node->level == x)
 			{
 				cout << node->data << " ";
+				delete node;
 			}
 		}
 		cout << endl;
